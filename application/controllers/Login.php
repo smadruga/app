@@ -42,8 +42,9 @@ class Login extends CI_Controller {
             $modulo = 'pet';
         }
 
-        if ($modulo == 'pet' || $modulo == 'odonto' || $modulo == 'medico' || $modulo == 'profissional') {
+        if ($modulo == 'pet' || $modulo == 'odonto' || $modulo == 'medico' || $modulo == 'profissional' || $modulo == 'salao') {
             ($modulo == 'medico') ? $data['nome_modulo'] = 'Médica' : $data['nome_modulo'] = $modulo;
+            ($modulo == 'salao') ? $data['nome_modulo'] = 'Salão' : $data['nome_modulo'] = $modulo;
 
             $_SESSION['log']['modulo'] = $data['modulo'] = $modulo;
             $_SESSION['log']['nome_modulo'] = $data['nome_modulo'];
@@ -54,6 +55,7 @@ class Login extends CI_Controller {
             $data['modulo'] = $this->input->get_post('modulo');
 
             ($data['modulo'] == 'medico') ? $data['nome_modulo'] = 'Médica' : $data['nome_modulo'] = $data['modulo'];
+            ($data['modulo'] == 'salao') ? $data['nome_modulo'] = 'Salão' : $data['nome_modulo'] = $data['modulo'];
 
             $_SESSION['log']['modulo'] = $data['modulo'];
             $_SESSION['log']['nome_modulo'] = $data['nome_modulo'];
